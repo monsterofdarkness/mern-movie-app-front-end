@@ -1,0 +1,54 @@
+.list{
+    width: 100%;
+    height: 250px;
+    margin-top: 40px;
+    background: var(--bg-color);
+
+    .listTitle{
+        color: #fff;
+        font-size: 1.2rem;
+        font-weight: 500;
+        margin-left: 50px;
+    }
+
+    .wrapper{
+
+        position: relative;
+
+        .container{
+            margin-left: 50px;
+            display: flex;
+            width: max-content;
+            margin-top: 10px;
+            transform: translate(0px);
+            transition: all .2s ease;
+        }
+
+        .sliderArrow{
+            padding-top: 2rem;
+            width: 50px;
+            height: 100%;
+            background-color: rgba(20,20,20, 0.5);
+            color: #fff;
+            position: absolute;
+            font-size: 3.6rem;
+            z-index: 99;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            cursor: pointer;
+
+            &.left{
+                left: 0;
+            }
+
+            &.right{
+                right: 0;
+            }
+
+            i{
+                top: 2rem;
+            }
+        }
+    }
+}

@@ -1,0 +1,17 @@
+:root{
+    --main-color: #1e272e;
+    --bg-color: #171b22;
+}
+
+body{
+    margin: 0 ;
+}
+
+.link, Link {
+    color: inherit;
+    text-decoration: none;
+}
+
+.link:hover {
+    color: #ffbd2d;
+}

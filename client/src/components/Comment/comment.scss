@@ -1,0 +1,21 @@
+.comment__item{
+    margin: 2rem 2rem 2rem 6rem;
+    padding: 2rem 2rem 2rem 2rem;
+    display: flex;
+    flex-direction: column;
+    background-color: #1e2936;
+    border: 1px solid #ffffff;
+    border-radius: 40px;
+
+    .comment__item-auth{
+      margin-bottom: 1.4rem;
+    }
+
+    .comment__item-content{
+      margin-bottom: 1rem;
+    }
+
+    .comment__item-time{
+      font-size: 12px;
+    }
+  }

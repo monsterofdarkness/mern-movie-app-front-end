@@ -1,0 +1,45 @@
+.person{
+    width: 100vw;
+    height: 100vh;
+    flex-direction: column;
+    
+
+    .person__container{
+        padding-top: 14rem;
+        background-color: var(--bg-color);
+        color: #fff;
+        width: 100vw;
+        height: 800px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: flex-start;
+        align-content: flex-start;
+
+        .person__left{
+            justify-content: flex-end;
+
+            img {
+                width: 100%;
+                height: 300px;
+                border-radius: 30px;
+                border: 6px solid #000;
+            }
+        }
+
+        .person__right{
+            margin-left: 4rem;
+            width: 800px;
+            height: auto;
+
+            h2{
+                margin: 2rem 0 2rem 0;
+            }
+
+            h3{
+                margin: 1rem 0 1rem 1rem;
+            }
+        }
+
+    }
+}
