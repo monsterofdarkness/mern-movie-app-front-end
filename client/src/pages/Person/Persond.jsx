@@ -57,11 +57,9 @@ const Persond = () => {
             </h3>
 
             <h3 className="person__desc">
-              Genre: 
-              <span> {person.genre ? "Male" : "Female"} </span>
+              Gender: 
+              <span> {person.genre ? "Female" : "Male"} </span>
             </h3>
-
-
           </div>
         </div>
         <Footer/>
