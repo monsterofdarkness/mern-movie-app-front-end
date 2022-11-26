@@ -9,7 +9,7 @@ const Persond = () => {
   const location = useLocation();
   console.log(location)
   const [person, setPerson] = useState({});
-
+ 
   useEffect(() => {
     const getMov = async () => {
       try {
@@ -28,7 +28,10 @@ const Persond = () => {
     }; getMov();
     
   },[]);
+  //person.gender khong phai genre
+  // console.log(person.genre);
   return (
+    
     <div className='person'>
         <NavBar/>
         <div className="person__container">
@@ -38,7 +41,7 @@ const Persond = () => {
             src= {person.img}
             />
           </div>
-
+          
           <div className="person__right">
             <h2 className="person__name">Name: {person.name}</h2>
             <h3 className="person__desc">
@@ -55,10 +58,9 @@ const Persond = () => {
               Birthday: 
               <span> {person.DOB&&person.DOB.substring(0,10)}</span>
             </h3>
-
             <h3 className="person__desc">
               Gender: 
-              <span> {person.genre ? "Female" : "Male"} </span>
+              <span> {person.gender ? "Male" : "Female"} </span>
             </h3>
           </div>
         </div>
