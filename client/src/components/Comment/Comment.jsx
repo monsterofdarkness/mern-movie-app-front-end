@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import "./comment.scss"
 import clientAxios from '../../apis';
+import ReadMoreReadLess from '../ReadMoreReadLess/ReadMoreReadLess';
 
 
 const Comment = (item) => {
@@ -27,10 +28,14 @@ const Comment = (item) => {
 
   console.log(userCmt)
 
+
   return (
     <div className="comment__item">
       <h2 className='comment__item-auth'>{userCmt.username}</h2>
-      <span className='comment__item-content'>{item.item.content}</span>
+      {
+        item.item.content.length > 300 ?  <ReadMoreReadLess limit = {300}>{item.item.content}</ReadMoreReadLess> : <span>{item.item.content}</span>
+      }
+      
       <span className='comment__item-time'>Commented: {item.item.createdAt.substring(0,10)}</span>
   </div>
   )

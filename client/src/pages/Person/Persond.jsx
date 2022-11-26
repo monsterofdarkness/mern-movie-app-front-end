@@ -5,7 +5,7 @@ import NavBar from '../../components/NavBar/NavBar'
 import "./person.scss"
 import clientAxios from '../../apis';
 
-const Person = () => {
+const Persond = () => {
   const location = useLocation();
   console.log(location)
   const [person, setPerson] = useState({});
@@ -13,7 +13,7 @@ const Person = () => {
   useEffect(() => {
     const getMov = async () => {
       try {
-        const res = await clientAxios.get(`/casts/find/${location.hash.substring(1)}`, {
+        const res = await clientAxios.get(`/directors/find/${location.hash.substring(1)}`, {
           headers: {
             token:
             "Bearer "+JSON.parse(localStorage.getItem("user")).accessToken,
@@ -69,4 +69,4 @@ const Person = () => {
   )
 }
 
-export default Person
+export default Persond

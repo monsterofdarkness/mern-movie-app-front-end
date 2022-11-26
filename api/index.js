@@ -12,6 +12,9 @@ const listRoute = require("./routes/lists");
 const castRoute =  require("./routes/casts");
 const commentRoute = require("./routes/comments");
 const castofMovieRoute = require("./routes/castsofMovie");
+const director = require("./routes/directors");
+const plan = require("./routes/plans");
+const myMovieList = require("./routes/myMoviesList");
 
 
 dotenv.config();
@@ -44,6 +47,9 @@ app.use("/api/lists", listRoute);
 app.use("/api/casts", castRoute);
 app.use("/api/comments", commentRoute);
 app.use("/api/castsofMovie", castofMovieRoute);
+app.use("/api/directors", director);
+app.use("/api/plans", plan);
+app.use("/api/myMoviesList", myMovieList);
 
 app.listen(8800, () => {
   console.log("Backend server is running!");

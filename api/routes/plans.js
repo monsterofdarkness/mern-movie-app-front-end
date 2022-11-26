@@ -1,15 +1,18 @@
 const router = require("express").Router();
-const Cast = require("../models/Cast");
+const Plan = require("../models/plan");
 const verify = require("../verifyToken");
 
 //CREATE
 
+
 router.post("/", verify, async (req, res) => {
-  if (req.user.isAdmin) {
-    const newCast = new Cast(req.body);
+
+
+  if (req.user) {
+    const newPlan = new Plan(req.body);
     try {
-      const savedCast = await newCast.save();
-      res.status(201).json(savedCast);
+      const savedPlan = await newPlan.save();
+      res.status(201).json(savedPlan);
     } catch (err) {
       res.status(500).json(err);
     }
@@ -23,14 +26,14 @@ router.post("/", verify, async (req, res) => {
 router.put("/:id", verify, async (req, res) => {
   if (req.user.isAdmin) {
     try {
-      const updatedCast = await Cast.findByIdAndUpdate(
+      const updatedPlan = await Plan.findByIdAndUpdate(
         req.params.id,
         {
           $set: req.body,
         },
         { new: true }
       );
-      res.status(200).json(updatedCast);
+      res.status(200).json(updatedPlan);
     } catch (err) {
       res.status(500).json(err);
     }
@@ -44,8 +47,8 @@ router.put("/:id", verify, async (req, res) => {
 router.delete("/:id", verify, async (req, res) => {
   if (req.user.isAdmin) {
     try {
-      await Cast.findByIdAndDelete(req.params.id);
-      res.status(200).json("The cast has been deleted...");
+      await Plan.findByIdAndDelete(req.params.id);
+      res.status(200).json("The Plan has been deleted...");
     } catch (err) {
       res.status(500).json(err);
     }
@@ -58,8 +61,8 @@ router.delete("/:id", verify, async (req, res) => {
 
 router.get("/find/:id", verify, async (req, res) => {
   try {
-    const cast = await Cast.findById(req.params.id);
-    res.status(200).json(cast);
+    const plan = await Plan.findById(req.params.id);
+    res.status(200).json(plan);
   } catch (err) {
     res.status(500).json(err);
   }
@@ -70,8 +73,8 @@ router.get("/find/:id", verify, async (req, res) => {
 router.get("/", verify, async (req, res) => {
   if (req.user.isAdmin) {
     try {
-      const casts = await Cast.find();
-      res.status(200).json(casts.reverse());
+      const plans = await Plan.find();
+      res.status(200).json(plans.reverse());
     } catch (err) {
       res.status(500).json(err);
     }

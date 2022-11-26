@@ -1,0 +1,17 @@
+.plan__container{
+    padding-top: 6rem;
+    background-image: url("https://wallpapershome.com/images/pages/pic_h/19550.jpg");
+    background-repeat: no-repeat;
+    object-fit: cover;
+    height: 900px;
+    width: 100vw;
+
+
+    .listplan{
+        margin: 0 8rem 0 8rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        justify-items: center;
+    }
+
+}

@@ -13,6 +13,14 @@ const MovieSchema = new mongoose.Schema(
     limit: { type: Number },
     genre: { type: Array },
     isSeries: { type: Boolean, default: false },
+    director_id: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Director',
+      require: true
+    },
+    view: {
+      type: Number
+    },
   },
   { timestamps: true }
 );

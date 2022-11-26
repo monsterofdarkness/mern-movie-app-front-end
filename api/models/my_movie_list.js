@@ -7,11 +7,7 @@ const myMovieListSchema = new mongoose.Schema(
       ref: 'User',
       require: true
     },
-    movie_id: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Movie',
-        require: true
-    }
+    content:{type:Array}
   },
   { timestamps: true }
 );

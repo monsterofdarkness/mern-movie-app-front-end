@@ -7,6 +7,7 @@ import Footer from '../../components/Footer/Footer'
 import './home.scss'
 import List from '../../components/List/List'
 import clientAxios from '../../apis';
+import MyList from '../../components/MyList/MyList';
  
 
 const Home = ({type}) => {
@@ -41,6 +42,7 @@ const [genre, setGenre] = useState(null);
       <div className='home'>
         <NavBar/>
         <Featured type={type} setGenre={setGenre}/>
+        <MyList />
         {lists?.length && lists.map((list, index) => (
           <List list={list} key={index}/>
         ))}

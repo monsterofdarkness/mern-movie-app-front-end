@@ -1,11 +1,33 @@
 import React from 'react'
-import { useRef, useState } from "react";
-import ListItem from '../ListItem/ListItem'
-import './list.scss'
+import { useRef, useState,useEffect } from "react";
+import './myList.scss'
+import clientAxios from '../../apis';
+import TrendItem from '../TrendItem/TrenItem';
 
-export default function List({ list }) {
+export default function MyList() {
   const [isMoved, setIsMoved] = useState(false);
   const [slideNumber, setSlideNumber] = useState(0);
+  const [myList, setMyList] = useState({})
+
+  console.log(myList)
+
+
+  useEffect(() => {
+    const getMovc = async () => {
+      try {
+        const res = await clientAxios.get(`/myMoviesList/finduid/${JSON.parse(localStorage.getItem("user"))._id}`, {
+          headers: {
+            token:
+            "Bearer "+JSON.parse(localStorage.getItem("user")).accessToken,
+          },
+        });
+        setMyList(res);
+        console.log(res)
+      } catch (err) {
+        console.log(err);
+      }
+    }; getMovc();
+  },[]);
 
   const listRef = useRef();
 
@@ -24,7 +46,7 @@ export default function List({ list }) {
 
   return (
     <div className="list">
-      <span className="listTitle">{list?.title}</span>
+      <span className="listTitle">My list <i className="ri-user-heart-fill"></i></span>
       <div className="wrapper">
         <i
           className="ri-arrow-left-s-line sliderArrow left"
@@ -32,8 +54,8 @@ export default function List({ list }) {
           style={{ display: !isMoved && "none" }}>
         </i>
         <div className="container" ref={listRef}>
-          {list?.content && list.content.map((item, i) => (
-              <ListItem key={i} index={i} item={item} />
+          {myList?.content && myList.content.map((item, i) => (
+              <TrendItem key={i} index={i} item={item} mlid={myList._id}/>
             ))}
         </div>
         <i

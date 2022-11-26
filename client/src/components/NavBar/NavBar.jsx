@@ -43,8 +43,8 @@ const NavBar = () => {
                     <span className="navbar__mainLinks">Movies</span>
                 </Link>
 
-                <Link to="/home" className="link link_btn">
-                    <span className="navbar__mainLinks">New and Popular</span>
+                <Link to="/plan" className="link link_btn">
+                    <span className="navbar__mainLinks">Plans</span>
                 </Link>
 
                 <Link to="/home" className="link link_btn">
